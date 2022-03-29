@@ -1,24 +1,47 @@
 import { useState, useRef } from "react";
 
 const useTimer = (ini = 0) => {
-  const [time, setTime] = "Your code here";
+  const [time, setTime] = useState(ini);
 
-  const isStart = "Your code here";
-  const active = "Your code here";
-  const refInterval = "Your code here";
+  const active = useRef();
+  const refInterval = useRef(null);
+  const [isStart, setIsStart] = useState(false);
+  const [laps, setLaps] = useState([]);
 
   const startTimer = () => {
-    "Your code here";
+    refInterval.current = setInterval(
+      () => setTime((prevTime) => prevTime + 1),
+      1000
+    );
+    setIsStart(true);
     active.current.disabled = true;
   };
   const stopTimer = () => {
-    "Your code here";
-  };
-  const resetTimer = () => {
-    "Your code here";
+    clearInterval(refInterval.current);
+    refInterval.current = null;
+    setIsStart(false);
     active.current.disabled = false;
   };
+  const resetTimer = () => {
+    stopTimer();
+    setIsStart(false);
+    setLaps([]);
+    setTime(0);
+  };
+  const lapTimer = () => {
+    console.log(`lap`);
+    setLaps((preLaps) => [...preLaps, time]);
+  };
 
-  return { time, startTimer, stopTimer, resetTimer, active };
+  return {
+    time,
+    startTimer,
+    stopTimer,
+    resetTimer,
+    lapTimer,
+    isStart,
+    laps,
+    active,
+  };
 };
 export default useTimer;

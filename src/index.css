@@ -22,17 +22,17 @@ code {
     monospace;
 }
 
-h1 {
+span {
   color: var(--text-main-color);
   font-family: "Rouge Script", cursive;
-  font-size: 130px;
+  font-size: 4rem;
   font-weight: normal;
   line-height: 48px;
-  margin: 0 0 50px;
-  text-align: center;
   text-shadow: 1px 1px 2px var(--text-shadow-color);
 }
-
+.image {
+  height: 5.5rem;
+}
 p {
   color: #ffffff;
   font-family: "Carme", sans-serif;
@@ -40,6 +40,7 @@ p {
 }
 
 .container {
+  background-color: #f0bebc94;
   margin: auto;
   max-width: 1048px;
   height: 100vh;
@@ -49,12 +50,16 @@ p {
   align-items: center;
 }
 .timer__wrapper {
+  margin-top: 1rem;
   border-radius: 24px;
-  background-color: var(--text-shadow-color);
+  /* background-color: var(--text-shadow-color); */
+  background-color: #07303c;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px,
     rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+  padding: 2rem 2.2rem;
 }
 .timer__display {
+  text-align: center;
   padding-left: 1.5em;
 }
 .timer__display > p {
@@ -63,9 +68,9 @@ p {
 
 .button__wrapper {
   display: flex;
-  width: 30vw;
-  padding: 1em;
-  justify-content: space-evenly;
+  width: 90%;
+  padding: 1rem;
+  justify-content: space-between;
   align-items: center;
 }
 .button {
@@ -76,6 +81,8 @@ p {
   border: 1px solid white;
   padding: 1em;
   transition: ease-in-out 0.3s;
+  margin-right: 1rem;
+  min-width: 7rem;
 }
 .button:active {
   border: 1px solid var(--text-main-color);
@@ -91,6 +98,25 @@ p {
   border: 1px solid var(--text-main-color);
   background-color: var(--text-main-color);
 } */
+
+.lap {
+  color: black;
+  font-size: 2rem;
+  margin-top: 1rem;
+}
+.lap-btn {
+  background-color: #c8a7ef;
+}
+.start {
+  background-color: #27deab;
+}
+.stop {
+  background-color: #e87254;
+}
+.reset {
+  background-color: #19a2ca;
+}
+
 @media only screen and (max-device-width: 1280px) {
   * {
     font-size: 0.9em;
@@ -106,5 +132,8 @@ p {
   .timer__display > p {
     font-size: 3.8em;
     padding-left: 0;
+  }
+  .button {
+    min-width: 1rem;
   }
 }

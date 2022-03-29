@@ -1,8 +1,14 @@
-export const formatTime = (time) => {
-  const getSeconds = "Your code here";
-  const minutes = "Your code here";
-  const getMinutes = "Your code here";
-  const getHours = "Your code here";
+export const padWithZero = (num, length = 2) => {
+  return String(num).padStart(length, "0");
+};
 
-  return `${getHours} : ${getMinutes} : ${getSeconds}`;
+export const formatTime = (time) => {
+  //const minutes = "0";
+  const getHours = Math.floor(time / 3600);
+  const getMinutes = Math.floor((time - getHours * 3600) / 60);
+  const getSeconds = time - getHours * 3600 - getMinutes * 60;
+
+  return `${padWithZero(getHours)} : ${padWithZero(getMinutes)} : ${padWithZero(
+    getSeconds
+  )}`;
 };
